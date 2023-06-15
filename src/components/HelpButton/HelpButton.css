@@ -1,0 +1,13 @@
+button{
+    border: none;
+    font-size: 20px;
+    outline: 1px solid #1f1f1f72;
+    outline-offset: 0px;
+    border-radius: 2px;
+    transition: outline-offset 0.1s ease-in-out;
+}
+
+button:hover{
+    outline: 3px solid #1f1f1f72;
+    outline-offset: 2px;
+}
