@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #01000f;
+    color: #fcfcfc;
+}
+
+.btn {
+    border: none;
+    font-size: 20px;
+    outline-offset: 0px;
+    border-radius: 3px;
+    font-weight: 500;
+    background-color: #09e1cd;
+    color: #000000;
+    padding: 5px;
+
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.prevent-select {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+h1, p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1, form, img, p{
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}

@@ -65,7 +65,7 @@ function App() {
   };
 
   const handleHelp = () => {
-    if (helpLettersCounter < 2) {
+    if (helpLettersCounter < 2 && timer > 2) {
       setHelpLettersCounter((prevHelpLetters) => prevHelpLetters + 1);
       const countryName = selectedCountry?.name.toLowerCase();
       const randomIndex = Math.floor(Math.random() * countryName.length);
@@ -82,7 +82,7 @@ function App() {
       <h1>Adivina la bandera</h1>
       {selectedCountry && (
         <div>
-          <FlagImage flagUrl={selectedCountry.flag} />
+          <FlagImage flagUrl={selectedCountry.flag}/>
           <Scoreboard points={points} />
           <Timer seconds={timer} />
           <GuessForm handleGuess={handleGuess} helpLetter={helpLetter}/>

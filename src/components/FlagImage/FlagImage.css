@@ -1,4 +1,13 @@
 img{
-    width: 550px;
-    height: 300px;
+    width: 600px;
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: all .3s;
+    filter: grayscale(15%);
+}
+
+
+img:hover{
+    filter: grayscale(0);
 }

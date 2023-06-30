@@ -1,13 +1,29 @@
-button{
-    border: none;
+.btn-help{
     font-size: 20px;
-    outline: 1px solid #1f1f1f72;
-    outline-offset: 0px;
-    border-radius: 2px;
-    transition: outline-offset 0.1s ease-in-out;
+    border-radius: 3px;
+    font-weight: 500;
+    color: #09e1cd;
+    padding: 5px;
+    border: 2px solid #09e1cd;
+    transition: all .2s;
+    text-align: center;
 }
 
-button:hover{
-    outline: 3px solid #1f1f1f72;
-    outline-offset: 2px;
+.btn-help:hover{
+    cursor: pointer;
+    background-color: #09e1cd;
+    color: black;
+}
+
+.prevent-select {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+input{
+    margin: 0;
 }
