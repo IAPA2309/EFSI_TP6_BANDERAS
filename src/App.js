@@ -23,6 +23,12 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleDefeat = () => {
+    if (timer <= 0) {
+      console.log("perdiste");
+    }
+  };
+
   // Seleccionar un país aleatorio al obtener la lista de países
   useEffect(() => {
     selectNewCountry(countries);
@@ -38,10 +44,13 @@ function App() {
       }, 1000);
     }
 
+    handleDefeat();
+    
     return () => {
       clearInterval(intervalId);
     };
-  }, [selectedCountry, timer]);
+
+  }, [selectedCountry, timer, handleDefeat]);
 
   const selectNewCountry = (countries) => {
     if (countries.length > 0) {
@@ -55,13 +64,14 @@ function App() {
   const handleGuess = (event) => {
     event.preventDefault();
     const guess = event.target.elements.guess.value.toLowerCase();
-
+    
     if (guess === selectedCountry?.name.toLowerCase()) {
-      setPoints((prevPoints) => prevPoints + 10);
+      setPoints((prevPoints) => prevPoints + 10 + timer);
       selectNewCountry(countries);
     } else {
       setPoints((prevPoints) => prevPoints - 1);
     }
+    event.target.reset();
   };
 
   const handleHelp = () => {
@@ -92,5 +102,7 @@ function App() {
     </div>
   );
 }
+
+// Usar propTypes
 
 export default App;
