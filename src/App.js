@@ -95,8 +95,8 @@ function App() {
           <FlagImage flagUrl={selectedCountry.flag}/>
           <Scoreboard points={points} />
           <Timer seconds={timer} />
-          <GuessForm handleGuess={handleGuess} helpLetter={helpLetter}/>
           <HelpButton handleHelp={handleHelp} />
+          <GuessForm handleGuess={handleGuess} helpLetter={helpLetter}/>
         </div>
       )}
     </div>

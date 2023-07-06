@@ -2,7 +2,11 @@ import React from 'react'
 import './HelpButton.css'
 
 function HelpButton({ handleHelp }) {
-  return <button className='prevent-select btn-help' onClick={ handleHelp }>Pista</button>;
+  return (
+    <div className="center">
+      <button className='prevent-select btn-help center' onClick={ handleHelp }>Pista</button>
+    </div>
+  );
 }
 
 export default HelpButton
