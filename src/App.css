@@ -3,6 +3,7 @@
     padding: 0;
     background-color: #01000f;
     color: #fcfcfc;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .btn {
@@ -45,4 +46,11 @@ h1, form, img, p{
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+
+.center-notflex{
+    margin: auto;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
 }

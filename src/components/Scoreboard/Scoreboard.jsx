@@ -1,7 +1,11 @@
 import React from 'react'
 
 function Scoreboard({ points }) {
-  return <p>Puntos: {points}</p>;
+  return (
+    <p>
+      Puntos: <b>{points}</b>
+    </p>
+  );
 }
 
 export default Scoreboard

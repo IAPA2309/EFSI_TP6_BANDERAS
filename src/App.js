@@ -5,6 +5,10 @@ import Scoreboard from './components/Scoreboard/Scoreboard';
 import Timer from './components/Timer/Timer';
 import GuessForm from './components/GuessForm/GuessForm';
 import HelpButton from './components/HelpButton/HelpButton';
+import "react-step-progress-bar/styles.css";
+import { ProgressBar } from "react-step-progress-bar";
+
+
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -23,12 +27,6 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  const handleDefeat = () => {
-    if (timer <= 0) {
-      console.log("perdiste");
-    }
-  };
-
   // Seleccionar un país aleatorio al obtener la lista de países
   useEffect(() => {
     selectNewCountry(countries);
@@ -44,13 +42,19 @@ function App() {
       }, 1000);
     }
 
+    const handleDefeat = () => {
+      if (timer <= 0) {
+        console.log("perdiste");
+      }
+    };
+
     handleDefeat();
     
     return () => {
       clearInterval(intervalId);
     };
 
-  }, [selectedCountry, timer, handleDefeat]);
+  }, [selectedCountry, timer]);
 
   const selectNewCountry = (countries) => {
     if (countries.length > 0) {
@@ -92,11 +96,17 @@ function App() {
       <h1>Adivina la bandera</h1>
       {selectedCountry && (
         <div>
-          <FlagImage flagUrl={selectedCountry.flag}/>
-          <Scoreboard points={points} />
+          <FlagImage flagUrl={selectedCountry.flag} />
           <Timer seconds={timer} />
+          <div className="center-notflex">
+            <ProgressBar
+              percent={timer * 6.7}
+              filledBackground="linear-gradient(to right, #d12d28, #09e1cd)"
+            />
+          </div>
+          <Scoreboard points={points} />
           <HelpButton handleHelp={handleHelp} />
-          <GuessForm handleGuess={handleGuess} helpLetter={helpLetter}/>
+          <GuessForm handleGuess={handleGuess} helpLetter={helpLetter} />
         </div>
       )}
     </div>
