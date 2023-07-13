@@ -7,8 +7,8 @@ import GuessForm from './components/GuessForm/GuessForm';
 import HelpButton from './components/HelpButton/HelpButton';
 import "react-step-progress-bar/styles.css";
 import { ProgressBar } from "react-step-progress-bar";
-
-
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -18,6 +18,12 @@ function App() {
   // const [playerName, setPlayerName] = useState("");
   const [helpLettersCounter, setHelpLettersCounter] = useState(0);
   const [helpLetter, setHelpLetter] = useState("");
+
+  // Hooks del modal
+  const [open, setOpen] = useState(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
 
   // Obtener la lista de países al cargar el componente
   useEffect(() => {
@@ -44,7 +50,7 @@ function App() {
 
     const handleDefeat = () => {
       if (timer <= 0) {
-        console.log("perdiste");
+        onOpenModal();
       }
     };
 
@@ -85,7 +91,6 @@ function App() {
       const randomIndex = Math.floor(Math.random() * countryName.length);
       const randomLetter = countryName[randomIndex];
       setHelpLetter(randomLetter);
-      console.log(randomLetter);
       console.log(selectedCountry.name);
       setTimer((prevTimer) => prevTimer - 2);
     }
@@ -109,6 +114,25 @@ function App() {
           <GuessForm handleGuess={handleGuess} helpLetter={helpLetter} />
         </div>
       )}
+      <div>
+        <Modal
+          open={open}
+          onClose={onCloseModal}
+          center
+          classNames={{
+            modal: "customModal",
+          }}
+          closeOnOverlayClick={false}
+          showCloseIcon={false}
+        >
+          <h2>Perdiste</h2>
+          <Scoreboard points={points} />
+          <p>¿Reiniciar juego?</p>
+          <button onClick={() => window.location.reload(true)} className="btn">
+            Reiniciar
+          </button>
+        </Modal>
+      </div>
     </div>
   );
 }

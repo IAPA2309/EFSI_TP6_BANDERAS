@@ -1,9 +1,12 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: #01000f;
-    color: #fcfcfc;
     font-family: 'Noto Sans', sans-serif;
+}
+
+html{
+    color: #fcfcfc;
+    background-color: #01000f;
 }
 
 .btn {
@@ -53,4 +56,11 @@ h1, form, img, p{
     width: 600px;
     justify-content: center;
     align-items: center;
+}
+
+.customModal {
+    color: #000000;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
 }
